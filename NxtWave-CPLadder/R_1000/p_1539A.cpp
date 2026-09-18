@@ -5,21 +5,10 @@ void solve()
 {
     long long n, x, t;
     cin >> n >> x >> t;
-    if (t < x)
-    {
-        cout << '0' << endl;
-        return;
-    }
-    else if (t == x)
-    {
-        cout << '1' << endl;
-        return;
-    }
     long long ans = 0;
-    for (long long i = 1; i <= n; i++)
-    {
-        ans += min((n - i), t / x);
-    }
+    long long dpp = min(n - 1, t / x);
+    ans += dpp * (n - dpp);
+    ans += dpp * (dpp - 1) / 2;
     cout << ans << endl;
 }
 
